@@ -1,0 +1,94 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneyMe", "MoneyMe.csproj", "{482522CA-1E1B-4F40-842B-8F6197826F55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Enterprise Business Rules", "1. Enterprise Business Rules", "{C3C690E6-BBAD-4E08-812D-4392D6F12D35}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneyMe.Domain", "..\MoneyMe.Domain\MoneyMe.Domain\MoneyMe.Domain.csproj", "{95F92A55-7454-4B30-8C9E-49028F3133B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Application Business Rules", "2. Application Business Rules", "{9126D680-6AD3-42F6-9EC2-91337DB67EE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Interface Adapters", "3. Interface Adapters", "{34EBB84D-EF5C-4E24-9C7B-6EFDA7A4B6EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Frameworks And Drivers", "4. Frameworks And Drivers", "{EEFB3B8B-6109-42EB-BCA8-820DEC0B44A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{38E66D7F-3173-4812-AEA1-45EBFA8B4FF4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{2C6B9BE8-7FAA-410F-92C3-E92D76ADC2C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{D464444B-323A-4811-9BB0-8D508A7B4BC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyMe.CodingChallenge.Controllers", "..\MoneyMe.CodingChallenge.Controllers\MoneyMe.CodingChallenge.Controllers.csproj", "{0042B7BC-11AF-43D8-BEEB-FF3776CD50BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyMe.CodingChallenge.Presenters", "..\MoneyMe.CodingChallenge.Presenters\MoneyMe.CodingChallenge.Presenters.csproj", "{69ADF47B-1A2B-4E9D-9510-38BC70FECAB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyMe.InversionOfControl", "..\MoneyMe.InversionOfControl\MoneyMe.InversionOfControl.csproj", "{1E09D20C-8CFD-40CB-A7AF-60F56526EC40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyMe.CodingChallenge.UseCases", "..\MoneyMe.CodingChallenge.UseCases\MoneyMe.CodingChallenge.UseCases.csproj", "{059DF167-E5F8-458B-B87F-AE09E094429C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyMe.CodingChallenge.Repositories", "..\MoneyMe.CodingChallenge.Repositories\MoneyMe.CodingChallenge.Repositories.csproj", "{CD005CFC-6C57-408B-BF14-40B68061AB73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyMe.Domain.Presenters", "..\MoneyMe.Domain.Presenters\MoneyMe.Domain.Presenters.csproj", "{9076821A-6F16-468C-A102-5C97AE97DB1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{482522CA-1E1B-4F40-842B-8F6197826F55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{482522CA-1E1B-4F40-842B-8F6197826F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{482522CA-1E1B-4F40-842B-8F6197826F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{482522CA-1E1B-4F40-842B-8F6197826F55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95F92A55-7454-4B30-8C9E-49028F3133B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F92A55-7454-4B30-8C9E-49028F3133B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95F92A55-7454-4B30-8C9E-49028F3133B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95F92A55-7454-4B30-8C9E-49028F3133B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0042B7BC-11AF-43D8-BEEB-FF3776CD50BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0042B7BC-11AF-43D8-BEEB-FF3776CD50BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0042B7BC-11AF-43D8-BEEB-FF3776CD50BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0042B7BC-11AF-43D8-BEEB-FF3776CD50BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69ADF47B-1A2B-4E9D-9510-38BC70FECAB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69ADF47B-1A2B-4E9D-9510-38BC70FECAB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69ADF47B-1A2B-4E9D-9510-38BC70FECAB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69ADF47B-1A2B-4E9D-9510-38BC70FECAB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E09D20C-8CFD-40CB-A7AF-60F56526EC40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E09D20C-8CFD-40CB-A7AF-60F56526EC40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E09D20C-8CFD-40CB-A7AF-60F56526EC40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E09D20C-8CFD-40CB-A7AF-60F56526EC40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{059DF167-E5F8-458B-B87F-AE09E094429C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{059DF167-E5F8-458B-B87F-AE09E094429C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{059DF167-E5F8-458B-B87F-AE09E094429C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{059DF167-E5F8-458B-B87F-AE09E094429C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD005CFC-6C57-408B-BF14-40B68061AB73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD005CFC-6C57-408B-BF14-40B68061AB73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD005CFC-6C57-408B-BF14-40B68061AB73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD005CFC-6C57-408B-BF14-40B68061AB73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9076821A-6F16-468C-A102-5C97AE97DB1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9076821A-6F16-468C-A102-5C97AE97DB1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9076821A-6F16-468C-A102-5C97AE97DB1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9076821A-6F16-468C-A102-5C97AE97DB1E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{482522CA-1E1B-4F40-842B-8F6197826F55} = {38E66D7F-3173-4812-AEA1-45EBFA8B4FF4}
+		{95F92A55-7454-4B30-8C9E-49028F3133B3} = {C3C690E6-BBAD-4E08-812D-4392D6F12D35}
+		{38E66D7F-3173-4812-AEA1-45EBFA8B4FF4} = {EEFB3B8B-6109-42EB-BCA8-820DEC0B44A5}
+		{2C6B9BE8-7FAA-410F-92C3-E92D76ADC2C5} = {D464444B-323A-4811-9BB0-8D508A7B4BC7}
+		{D464444B-323A-4811-9BB0-8D508A7B4BC7} = {34EBB84D-EF5C-4E24-9C7B-6EFDA7A4B6EC}
+		{0042B7BC-11AF-43D8-BEEB-FF3776CD50BE} = {34EBB84D-EF5C-4E24-9C7B-6EFDA7A4B6EC}
+		{69ADF47B-1A2B-4E9D-9510-38BC70FECAB4} = {34EBB84D-EF5C-4E24-9C7B-6EFDA7A4B6EC}
+		{1E09D20C-8CFD-40CB-A7AF-60F56526EC40} = {34EBB84D-EF5C-4E24-9C7B-6EFDA7A4B6EC}
+		{059DF167-E5F8-458B-B87F-AE09E094429C} = {9126D680-6AD3-42F6-9EC2-91337DB67EE4}
+		{CD005CFC-6C57-408B-BF14-40B68061AB73} = {2C6B9BE8-7FAA-410F-92C3-E92D76ADC2C5}
+		{9076821A-6F16-468C-A102-5C97AE97DB1E} = {34EBB84D-EF5C-4E24-9C7B-6EFDA7A4B6EC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E492773D-867D-4B5D-9E53-F587821F96E0}
+	EndGlobalSection
+EndGlobal
