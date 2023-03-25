@@ -1,17 +1,24 @@
 ﻿namespace MoneyMe.Controllers;
-
 public class HomeController : Controller
 {
+    private readonly ISaveUserInfoController SaveUserInfoController;
+
+    public HomeController(ISaveUserInfoController saveUserInfoController)
+    {
+        SaveUserInfoController = saveUserInfoController;
+    }
+
     public IActionResult Index()
     {
         return View(new UserDataFormModel());
     }
 
     [HttpPost]
-    public IActionResult Index(UserDataFormModel Model)
+    public async Task<IActionResult> Index(UserDataFormModel Model)
     {
         if (ModelState.IsValid)
         {
+            await SaveUserInfoController.SaveUserInfoAsync(Model);
             return RedirectToAction("QouteCalculator", "Home", new { firstName = Model.FirstName, lastName = Model.LastName, birthDate = Model.DateOfBirth.ToString() });
         }
         else return View(new UserDataFormModel());

@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MoneyMe.CodingChallenge.BusinessObjects\MoneyMe.CodingChallenge.BusinessObjects.csproj" />
+    <ProjectReference Include="..\MoneyMe.Domain\MoneyMe.Domain\MoneyMe.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
