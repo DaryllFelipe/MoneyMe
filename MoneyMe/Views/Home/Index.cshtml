@@ -1,3 +1,89 @@
-﻿@{
+﻿@model MoneyMe.CodingChallenge.BusinessObjects.ViewModels.UserDataFormModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
+
+<h1>User Form</h1>
+<div class="container col-6">
+   <form method="post">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="AmountRequired"></label>
+                    <input asp-for="AmountRequired" class="form-control" />
+                    <span asp-validation-for="AmountRequired" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="Term"></label>
+                    <input asp-for="Term" class="form-control" />
+                    <span asp-validation-for="Term" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="Title"></label>
+                    <select asp-for="Title" class="form-control">
+                        <option disabled selected>
+                            Select A Title
+                        </option>
+                        <option value="Mr.">
+                            Mr.
+                        </option>
+                        <option value="Ms.">
+                            Ms.
+                        </option>
+                        <option value="Other">
+                            Other
+                        </option>
+                    </select>
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="DateOfBirth"></label>
+                    <input type="date" asp-for="DateOfBirth" class="form-control" />
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="Mobile"></label>
+                    <input type="number" asp-for="Mobile" class="form-control" />
+                    <span asp-validation-for="Mobile" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input type="email" asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn mt-1 btn-success">Submit</button>
+    </form>
+</div>
