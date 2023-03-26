@@ -36,6 +36,9 @@ public class HomeController : Controller
             Form = new QouteCalculatorFormModel(),
             UserData = await GetUserDataController.GetUserDataAsync(id)
         };
+
+        viewModel.Form.TermsOfMonth = viewModel.UserData.Term;
+        viewModel.Form.AmountToLoan = 2100;
         return View(viewModel);
     }
 

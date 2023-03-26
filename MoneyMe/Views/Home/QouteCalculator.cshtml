@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label asp-for="Form.SelectedProduct"></label>
+                    <label class="label"> <strong>Select a Product </strong></label>
                     <select asp-for="Form.SelectedProduct" class="form-control">
                         @foreach (Products item in Enum.GetValues(typeof(Products)))
                         {
@@ -26,36 +26,99 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-between">
-            <div class="col-md-2 border-bottom">
+
+        <div class="row mt-2 text-center">
+            <div class="col-md-12">
+                <strong><span>Term Selected(Month): &nbsp;</span><span id="sliderTermValue">@Model.Form.TermsOfMonth</span></strong>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="range" width="100%" class="form-range" asp-for="Form.TermsOfMonth" min="0" max="@Model.Form.TermsOfMonth" step="1" oninput="updateTermValue(this.value)" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row mt-2">
+            <div class="col-md-12 text-center">
+                <strong><span>Loan Amount: &nbsp;$</span><span id="sliderAmountValue">@Model.Form.AmountToLoan</span> </strong>
+            </div>
+            <div class="col-md-12 text-center">
+                <div class="form-group">
+                    <input type="range" class="form-range" asp-for="Form.AmountToLoan" min="2100" max="15000" step="100" oninput="updateAmountValue(this.value)" />
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row justify-content-between">
+                    <div class="col">
+                        <span>
+                            <strong>$2100 </strong>
+                        </span>
+                    </div>
+                    <div class="col">
+                        <span>
+                            <strong>How much do you need? </strong>
+                        </span>
+                    </div>
+                    <div class="col" style="text-align: right;">
+                        <span>
+                            <strong>$15000 </strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-between mt-2">
+            <div class="col">
                 <span>
-                    @Model.UserData.Title
+                    <strong>Title: </strong> @Model.UserData.Title
                 </span>
             </div>
-            <div class="col-md-3 border-bottom">
+            <div class="col ">
                 <span>
-                    @Model.UserData.FirstName
+                    <strong>First Name: </strong> @Model.UserData.FirstName
                 </span>
             </div>
-            <div class="col-md-3 border-bottom">
+            <div class="col ">
                 <span>
-                    @Model.UserData.LastName
+                    <strong>Last Name: </strong> @Model.UserData.LastName
                 </span>
             </div>
         </div>
 
-        <div class="row justify-content-between">
-            <div class="col-md-5 border-bottom">
+        <div class="row justify-content-between  mt-2">
+            <div class="col ">
                 <span>
-                    @Model.UserData.Email
+                    <strong>Birth Date: </strong> @Model.UserData.DateOfBirth.ToString("MM/dd/yyyy")
                 </span>
             </div>
-            <div class="col-md-3 border-bottom">
+            <div class="col ">
                 <span>
-                    @Model.UserData.Mobile
+                    <strong>Email: </strong> @Model.UserData.Email
+                </span>
+            </div>
+            <div class="col ">
+                <span>
+                    <strong>Mobile #: </strong> @Model.UserData.Mobile
                 </span>
             </div>
         </div>
-        <button type="submit" class="btn mt-1 btn-success">Submit</button>
+        <div class="row text-center  mt-2">
+            <div class="col">
+                <button type="submit" class="btn mt-2 btn-success ">Calculate Qoute</button>
+            </div>
+        </div>
+      
     </form>
 </div>
+
+<script>
+    function updateTermValue(val) {
+        document.getElementById("sliderTermValue").innerHTML = val;
+    }
+
+    function updateAmountValue(val) {
+        document.getElementById("sliderAmountValue").innerHTML = val;
+    }
+</script>
