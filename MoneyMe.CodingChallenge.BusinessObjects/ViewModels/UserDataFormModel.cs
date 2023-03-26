@@ -1,6 +1,8 @@
 ﻿namespace MoneyMe.CodingChallenge.BusinessObjects.ViewModels;
 public class UserDataFormModel
 {
+
+    public int Id { get; set; }
     [Range(0, int.MaxValue, ErrorMessage = "The value must be greater than or equal to 0.")]
     public int AmountRequired { get; set; }
     [Range(0, int.MaxValue, ErrorMessage = "The value must be greater than or equal to 0.")]

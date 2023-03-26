@@ -4,6 +4,7 @@ public static class DependencyContainer
     public static IServiceCollection AddMoneyMeCodingChallengeControllers(this IServiceCollection services)
     {
         services.AddScoped<ISaveUserInfoController, SaveUserInfoController>();
+        services.AddScoped<IGetUserDataController, GetUserDataController>();
         return services;
     }
 }
