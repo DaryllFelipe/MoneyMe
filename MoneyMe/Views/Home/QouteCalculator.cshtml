@@ -1,4 +1,61 @@
-﻿@model UserDataFormModel
-<h1>
-    @Model.Email
-</h1>
+﻿@model QouteCalculatorViewModel
+
+@{
+    ViewData["Title"] = "Qoute Calculator";
+}
+
+<div class="container col-6" style="text-align: center;">
+    <h1>Quote Calculator</h1>
+</div>
+
+<div class="container col-6">
+    <form method="post">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="Form.SelectedProduct"></label>
+                    <select asp-for="Form.SelectedProduct" class="form-control">
+                        @foreach (Products item in Enum.GetValues(typeof(Products)))
+                        {
+                            <option value="@item">
+                                Product @item
+                            </option>
+                        }
+                    </select>
+                    <span asp-validation-for="Form.SelectedProduct" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-md-2 border-bottom">
+                <span>
+                    @Model.UserData.Title
+                </span>
+            </div>
+            <div class="col-md-3 border-bottom">
+                <span>
+                    @Model.UserData.FirstName
+                </span>
+            </div>
+            <div class="col-md-3 border-bottom">
+                <span>
+                    @Model.UserData.LastName
+                </span>
+            </div>
+        </div>
+
+        <div class="row justify-content-between">
+            <div class="col-md-5 border-bottom">
+                <span>
+                    @Model.UserData.Email
+                </span>
+            </div>
+            <div class="col-md-3 border-bottom">
+                <span>
+                    @Model.UserData.Mobile
+                </span>
+            </div>
+        </div>
+        <button type="submit" class="btn mt-1 btn-success">Submit</button>
+    </form>
+</div>

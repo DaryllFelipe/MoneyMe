@@ -1,8 +1,4 @@
-﻿
-
-using MoneyMe.CodingChallenge.BusinessObjects.ViewModels;
-
-namespace MoneyMe.CodingChallenge.Repositories;
+﻿namespace MoneyMe.CodingChallenge.Repositories;
 internal class ManageUserRepository : IManageUserRepository
 {
     public Task<int> IsUserExistsAsync(UserDataFormModel model)
@@ -22,12 +18,12 @@ internal class ManageUserRepository : IManageUserRepository
             Id = 10,
             AmountRequired = 2,
             DateOfBirth = DateTime.Now,
-            Email = "adasd13123@gmail.com",
-            FirstName = "Test",
-            LastName = "Test",
-            Mobile = "1231231",
+            Email = "sample@gmail.com",
+            FirstName = "Daryll",
+            LastName = "Felipe",
+            Mobile = "09633213003",
             Term = 2,
-            Title = "Ms.",
+            Title = "Mr.",
         });
     }
 }

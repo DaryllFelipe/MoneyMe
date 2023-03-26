@@ -31,7 +31,21 @@ public class HomeController : Controller
     [Route("qouteCalculator/{id}")]
     public async Task<IActionResult> QouteCalculator(int id)
     {
-        return View(await GetUserDataController.GetUserDataAsync(id));
+        QouteCalculatorViewModel viewModel = new()
+        {
+            Form = new QouteCalculatorFormModel(),
+            UserData = await GetUserDataController.GetUserDataAsync(id)
+        };
+        return View(viewModel);
+    }
+
+    [HttpPost]
+    [Route("qouteCalculator/{id}")]
+    public async Task<IActionResult> QouteCalculator(int id, QouteCalculatorViewModel model)
+    {
+        QouteCalculatorViewModel viewModel = model;
+        viewModel.UserData = await GetUserDataController.GetUserDataAsync(id);
+        return View(viewModel);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
