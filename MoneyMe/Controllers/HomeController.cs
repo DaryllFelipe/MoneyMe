@@ -1,13 +1,16 @@
 ﻿namespace MoneyMe.Controllers;
+
 public class HomeController : Controller
 {
     private readonly ISaveUserInfoController SaveUserInfoController;
     private readonly IGetUserDataController GetUserDataController;
+    private readonly IGetMonthlyPaymentController GetMonthlyPaymentController;
 
-    public HomeController(ISaveUserInfoController saveUserInfoController, IGetUserDataController getUserDataController)
+    public HomeController(ISaveUserInfoController saveUserInfoController, IGetUserDataController getUserDataController, IGetMonthlyPaymentController getMonthlyPaymentController)
     {
         SaveUserInfoController = saveUserInfoController;
         GetUserDataController = getUserDataController;
+        GetMonthlyPaymentController = getMonthlyPaymentController;
     }
 
     public IActionResult Index()
@@ -33,22 +36,38 @@ public class HomeController : Controller
     {
         QouteCalculatorViewModel viewModel = new()
         {
-            Form = new QouteCalculatorFormModel(),
-            UserData = await GetUserDataController.GetUserDataAsync(id)
+            UserData = await GetUserDataController.GetUserDataAsync(id),
         };
 
-        viewModel.Form.TermsOfMonth = viewModel.UserData.Term;
-        viewModel.Form.AmountToLoan = 2100;
+        switch (viewModel.UserData.SelectedProduct)
+        {
+            case Products.A:
+                break;
+            case Products.B:
+                break;
+            case Products.C:
+                break;
+        }
+
+        viewModel.MonthlyRepayment = await GetMonthlyPaymentController.GetMonthlyPaymentAsync(viewModel.UserData);
         return View(viewModel);
     }
 
     [HttpPost]
     [Route("qouteCalculator/{id}")]
-    public async Task<IActionResult> QouteCalculator(int id, QouteCalculatorViewModel model)
+    public IActionResult QouteCalculator(int id, UserDataFormModel model)
     {
-        QouteCalculatorViewModel viewModel = model;
-        viewModel.UserData = await GetUserDataController.GetUserDataAsync(id);
+        UserDataFormModel viewModel = model;
+
         return View(viewModel);
+    }
+
+    [HttpGet]
+    [Route("apply-now/{id}")]
+    public async Task<IActionResult> ApplyNow(int id)
+    {
+        UserDataFormModel userData = await GetUserDataController.GetUserDataAsync(id);
+        return View(userData);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

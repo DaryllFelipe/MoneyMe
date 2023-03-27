@@ -16,13 +16,13 @@ internal class ManageUserRepository : IManageUserRepository
         return Task.FromResult(new UserDataFormModel()
         {
             Id = 10,
-            AmountRequired = 2,
+            AmountRequired = 5000,
             DateOfBirth = DateTime.Now,
             Email = "sample@gmail.com",
             FirstName = "Daryll",
             LastName = "Felipe",
             Mobile = "09633213003",
-            Term = 2,
+            Term = 12,
             Title = "Mr.",
         });
     }

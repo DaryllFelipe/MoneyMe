@@ -5,6 +5,7 @@ public static class DependencyContainer
     {
         services.AddScoped<ISaveUserInfoController, SaveUserInfoController>();
         services.AddScoped<IGetUserDataController, GetUserDataController>();
+        services.AddScoped<IGetMonthlyPaymentController, GetMonthlyPaymentController>();
         return services;
     }
 }
