@@ -12,5 +12,5 @@ internal class Loan
     public DateTime DateOfBirth { get; set; }
     public string Mobile { get; set; }
     public string Email { get; set; }
-    public Products SelectedProduct { get; set; }
+    public int SelectedProduct { get; set; }
 }

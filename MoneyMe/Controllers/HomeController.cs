@@ -5,12 +5,14 @@ public class HomeController : Controller
     private readonly ISaveUserInfoController SaveUserInfoController;
     private readonly IGetUserDataController GetUserDataController;
     private readonly IGetMonthlyPaymentController GetMonthlyPaymentController;
+    private readonly IEditUserDataController EditUserDataController;
 
-    public HomeController(ISaveUserInfoController saveUserInfoController, IGetUserDataController getUserDataController, IGetMonthlyPaymentController getMonthlyPaymentController)
+    public HomeController(ISaveUserInfoController saveUserInfoController, IGetUserDataController getUserDataController, IGetMonthlyPaymentController getMonthlyPaymentController, IEditUserDataController editUserDataController)
     {
         SaveUserInfoController = saveUserInfoController;
         GetUserDataController = getUserDataController;
         GetMonthlyPaymentController = getMonthlyPaymentController;
+        EditUserDataController = editUserDataController;
     }
 
     public IActionResult Index()
@@ -82,14 +84,14 @@ public class HomeController : Controller
                 }
                 else
                 {
-                    await SaveUserInfoController.SaveUserInfoAsync(Model);
-                    return RedirectToAction("QouteCalculator", "Edit", new { id = Model.Id });
+                    await EditUserDataController.EditUserDataAsync(Model);
+                    return RedirectToAction("QouteCalculator", "Home", new { id = Model.Id });
                 }
             }
             else
             {
-                await SaveUserInfoController.SaveUserInfoAsync(Model);
-                return RedirectToAction("QouteCalculator", "Edit", new { id = Model.Id });
+                await EditUserDataController.EditUserDataAsync(Model);
+                return RedirectToAction("QouteCalculator", "Home", new { id = Model.Id });
             }
         }
         else return View(new UserDataFormModel());

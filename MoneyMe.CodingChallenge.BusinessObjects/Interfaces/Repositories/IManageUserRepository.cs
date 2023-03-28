@@ -4,4 +4,5 @@ public interface IManageUserRepository
     Task<int> IsUserExistsAsync(UserDataFormModel model);
     Task<bool> SaveUserDataAsync(UserDataFormModel model);
     Task<UserDataFormModel> GetUserDataAsync(int id);
+    Task<bool> EditUserDataAsync(UserDataFormModel model);
 }
