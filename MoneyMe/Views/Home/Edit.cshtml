@@ -1,0 +1,161 @@
+﻿@model UserDataFormModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+
+<div class="container col-6" style="text-align: center;">
+    <h1>Edit Loan Data</h1>
+</div>
+<div class="container col-6">
+    <form method="post" >
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label class="label"> <strong>Select a Product </strong></label>
+                    <select asp-for="SelectedProduct" class="form-control">
+                        @foreach (Products item in Enum.GetValues(typeof(Products)))
+                        {
+                            <option value="@item">
+                                Product @item
+                            </option>
+                        }
+                    </select>
+                    <span asp-validation-for="SelectedProduct" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-2 text-center">
+            <div class="col-md-12">
+                <strong><span>Term Selected(Month): &nbsp;</span><span id="sliderTermValue">@Model.Term</span></strong>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="range" width="100%" class="form-range" asp-for="Term" min="1" max="60" step="1" oninput="updateTermValue(this.value)" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row mt-2">
+            <div class="col-md-12 text-center">
+                <strong><span>Loan Amount: &nbsp;$</span><span id="sliderAmountValue">@Model.AmountRequired</span> </strong>
+            </div>
+            <div class="col-md-12 text-center">
+                <div class="form-group">
+                    <input type="range" class="form-range" asp-for="AmountRequired" min="0" max="15000" step="5" oninput="updateAmountValue(this.value)" />
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row justify-content-between">
+                    <div class="col">
+                        <span>
+                            <strong>$0</strong>
+                        </span>
+                    </div>
+                    <div class="col">
+                        <span>
+                            <strong>How much do you need? </strong>
+                        </span>
+                    </div>
+                    <div class="col" style="text-align: right;">
+                        <span>
+                            <strong>$15000 </strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <strong>
+                        <label asp-for="Title"></label>
+                    </strong>
+                    <select asp-for="Title" class="form-control">
+                        <option disabled selected>
+                            Select A Title
+                        </option>
+                        <option value="Mr.">
+                            Mr.
+                        </option>
+                        <option value="Ms.">
+                            Ms.
+                        </option>
+                        <option value="Other">
+                            Other
+                        </option>
+                    </select>
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <strong>
+                        <label asp-for="FirstName"></label>
+                    </strong>
+                    <input asp-for="FirstName" class="form-control" placeholder="First name" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <strong>
+                        <label asp-for="LastName"></label>
+                    </strong>
+                    <input asp-for="LastName" class="form-control" placeholder="Last name" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <strong>
+                        <label asp-for="DateOfBirth"></label>
+                    </strong>
+                    <input type="date" asp-for="DateOfBirth" max="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control" placeholder="Birthdate" />
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <strong>
+                        <label asp-for="Mobile"></label>
+                    </strong>
+                    <input type="number" asp-for="Mobile" class="form-control" placeholder="Mobile #" />
+                    <span asp-validation-for="Mobile" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <strong>
+                        <label asp-for="Email"></label>
+                    </strong>
+                    <input type="email" asp-for="Email" class="form-control" placeholder="Email address" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center  mt-2">
+            <div class="col">
+                <button type="submit" class="btn mt-2 btn-success ">Calculate Qoute</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    function updateTermValue(val) {
+        document.getElementById("sliderTermValue").innerHTML = val;
+    }
+
+    function updateAmountValue(val) {
+        document.getElementById("sliderAmountValue").innerHTML = val;
+    }
+</script>

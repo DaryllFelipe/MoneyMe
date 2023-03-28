@@ -39,27 +39,28 @@ public class HomeController : Controller
             UserData = await GetUserDataController.GetUserDataAsync(id),
         };
 
-        switch (viewModel.UserData.SelectedProduct)
-        {
-            case Products.A:
-                break;
-            case Products.B:
-                break;
-            case Products.C:
-                break;
-        }
-
         viewModel.MonthlyRepayment = await GetMonthlyPaymentController.GetMonthlyPaymentAsync(viewModel.UserData);
         return View(viewModel);
     }
 
-    [HttpPost]
-    [Route("qouteCalculator/{id}")]
-    public IActionResult QouteCalculator(int id, UserDataFormModel model)
+    [HttpGet]
+    [Route("edit/{id}")]
+    public async Task<IActionResult> Edit(int id)
     {
-        UserDataFormModel viewModel = model;
+        UserDataFormModel model = await GetUserDataController.GetUserDataAsync(id);
+        return View(model);
+    }
 
-        return View(viewModel);
+    [HttpPost]
+    [Route("edit/{id}")]
+    public async Task<IActionResult> Edit(UserDataFormModel Model)
+    {
+        if (ModelState.IsValid)
+        {
+            await SaveUserInfoController.SaveUserInfoAsync(Model);
+            return RedirectToAction("QouteCalculator", "Home", new { id = Model.Id });
+        }
+        else return View(new UserDataFormModel());
     }
 
     [HttpGet]

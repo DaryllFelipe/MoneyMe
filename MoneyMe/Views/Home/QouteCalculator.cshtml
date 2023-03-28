@@ -8,14 +8,16 @@
 
     <div class="row text-center">
         <h1>Your Qoute</h1>
-    </div> 
-    
+    </div>
+
     <div class="row">
         <div class="col">
             <h3>Your Information</h3>
         </div>
         <div class="col" style="text-align:right;">
-            <button type="button" class="btn btn-success">Edit</button>
+            <a href="/edit/@Model.UserData.Id" class="btn btn-success">
+                <span>Edit</span>
+            </a>
         </div>
     </div>
     <div class="row">
@@ -83,7 +85,7 @@
     <div class="row text-center  mt-2">
         <div class="col">
             <a href="/apply-now/@Model.UserData.Id" class="btn btn-success">Apply Now</a>
-       </div>
+        </div>
     </div>
 
     <div class="row text-center  mt-2">
