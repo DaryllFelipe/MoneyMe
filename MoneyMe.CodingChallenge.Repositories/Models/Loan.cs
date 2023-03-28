@@ -1,4 +1,6 @@
-﻿namespace MoneyMe.CodingChallenge.Repositories.Models;
+﻿using MoneyMe.CodingChallenge.BusinessObjects.Enums;
+
+namespace MoneyMe.CodingChallenge.Repositories.Models;
 internal class Loan
 {
     public int Id { get; set; }
@@ -10,4 +12,5 @@ internal class Loan
     public DateTime DateOfBirth { get; set; }
     public string Mobile { get; set; }
     public string Email { get; set; }
+    public Products SelectedProduct { get; set; }
 }

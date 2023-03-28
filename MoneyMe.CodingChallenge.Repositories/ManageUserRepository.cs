@@ -46,17 +46,19 @@ internal class ManageUserRepository : IManageUserRepository, IDisposable
 
     public Task<UserDataFormModel> GetUserDataAsync(int id)
     {
-        return Task.FromResult(new UserDataFormModel()
+        Loan loan = MyContext.Loans.FirstOrDefault(x => x.Id == id);
+        return Task.FromResult(new UserDataFormModel() 
         {
-            Id = 10,
-            AmountRequired = 5000,
-            DateOfBirth = DateTime.Now,
-            Email = "sample@gmail.com",
-            FirstName = "Daryll",
-            LastName = "Felipe",
-            Mobile = "09633213003",
-            Term = 12,
-            Title = "Mr.",
+             Id = id,
+              AmountRequired = loan.AmountRequired,
+               DateOfBirth=loan.DateOfBirth,
+                Email = loan.Email,
+                 FirstName= loan.FirstName,
+                  LastName= loan.LastName,
+                   Mobile = loan.Mobile,
+                    SelectedProduct = loan.SelectedProduct,
+                     Term = loan.Term,
+                      Title = loan.Title,
         });
     }
 
