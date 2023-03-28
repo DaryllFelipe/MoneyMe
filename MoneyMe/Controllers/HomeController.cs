@@ -23,8 +23,24 @@ public class HomeController : Controller
     {
         if (ModelState.IsValid)
         {
-            await SaveUserInfoController.SaveUserInfoAsync(Model);
-            return RedirectToAction("QouteCalculator", "Home", new { id = Model.Id });
+            if (Model.SelectedProduct == Products.B)
+            {
+                if (Model.Term < 6)
+                {
+                    ViewBag.Error = "Your selected product is product B. Please set the loan term a minimum of 6 months";
+                    return View(new UserDataFormModel());
+                }
+                else
+                {
+                    await SaveUserInfoController.SaveUserInfoAsync(Model);
+                    return RedirectToAction("QouteCalculator", "Home", new { id = Model.Id });
+                }
+            }
+            else
+            {
+                await SaveUserInfoController.SaveUserInfoAsync(Model);
+                return RedirectToAction("QouteCalculator", "Home", new { id = Model.Id });
+            }
         }
         else return View(new UserDataFormModel());
 
@@ -57,8 +73,24 @@ public class HomeController : Controller
     {
         if (ModelState.IsValid)
         {
-            await SaveUserInfoController.SaveUserInfoAsync(Model);
-            return RedirectToAction("QouteCalculator", "Home", new { id = Model.Id });
+            if (Model.SelectedProduct == Products.B)
+            {
+                if (Model.Term < 6)
+                {
+                    ViewBag.Error = "Your selected product is product B. Please set the loan term a minimum of 6 months";
+                    return View(new UserDataFormModel());
+                }
+                else
+                {
+                    await SaveUserInfoController.SaveUserInfoAsync(Model);
+                    return RedirectToAction("QouteCalculator", "Edit", new { id = Model.Id });
+                }
+            }
+            else
+            {
+                await SaveUserInfoController.SaveUserInfoAsync(Model);
+                return RedirectToAction("QouteCalculator", "Edit", new { id = Model.Id });
+            }
         }
         else return View(new UserDataFormModel());
     }
