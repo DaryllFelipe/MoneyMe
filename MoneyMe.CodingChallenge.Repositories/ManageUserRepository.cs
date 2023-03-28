@@ -1,6 +1,14 @@
-﻿namespace MoneyMe.CodingChallenge.Repositories;
-internal class ManageUserRepository : IManageUserRepository
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace MoneyMe.CodingChallenge.Repositories;
+internal class ManageUserRepository : IManageUserRepository, IDisposable
 {
+    private readonly Context MyContext;
+    public ManageUserRepository()
+    {
+        MyContext = new();
+    }
+
     public Task<int> IsUserExistsAsync(UserDataFormModel model)
     {
         return Task.FromResult(5);
@@ -8,7 +16,32 @@ internal class ManageUserRepository : IManageUserRepository
 
     public Task<bool> SaveUserDataAsync(UserDataFormModel model)
     {
-        return Task.FromResult(true);
+        bool result;
+        Loan data = new()
+        {
+            AmountRequired = model.AmountRequired,
+            DateOfBirth = model.DateOfBirth,
+            Email = model.Email,
+            FirstName = model.FirstName,
+            LastName = model.LastName,
+            Id = model.Id,
+            Mobile = model.Mobile,
+            Term = model.Term,
+            Title = model.Title,
+        };
+        try
+        {
+            MyContext.Loans.Add(data);
+            MyContext.SaveChanges();
+            model.Id = data.Id;
+            result = true;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            result = false;
+        }
+        return Task.FromResult(result);
     }
 
     public Task<UserDataFormModel> GetUserDataAsync(int id)
@@ -25,5 +58,10 @@ internal class ManageUserRepository : IManageUserRepository
             Term = 12,
             Title = "Mr.",
         });
+    }
+
+    public void Dispose()
+    {
+        MyContext.Dispose();
     }
 }

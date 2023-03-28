@@ -8,13 +8,7 @@ internal class SaveUserInfoHandler : ISaveUserInfoInputPort
     {
 		try
 		{
-            int id = await Repository.IsUserExistsAsync(model);
-            if (id < 0)
-            {
-                await Repository.SaveUserDataAsync(model);
-                id = await Repository.IsUserExistsAsync(model);
-            }
-            model.Id = id;
+            await Repository.SaveUserDataAsync(model);
         }
 		catch (Exception)
 		{

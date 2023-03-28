@@ -4,7 +4,7 @@
 namespace MoneyMe.CodingChallenge.Repositories;
 internal class Context : DbContext
 {
-    DbSet<Loan> Loans { get; set; }
+    public DbSet<Loan> Loans { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
