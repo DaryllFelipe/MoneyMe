@@ -102,12 +102,41 @@ public class HomeController : Controller
     public async Task<IActionResult> ApplyNow(int id)
     {
         UserDataFormModel userData = await GetUserDataController.GetUserDataAsync(id);
-        return View(userData);
+        bool canProceed = true;
+        if (userData.DateOfBirth.AddYears(18) < DateTime.Now)
+        {
+            canProceed = false;
+            ViewBag.CantProceedError += "You need to be 18 yrs old so that you can apply to this loan. ";
+        }
+        List<string> blockedMobileNo = new() { "093098211111", "093098211112" };
+        List<string> blockedDomain = new() { "yahoo.com", "bing.com" };
+        if (blockedMobileNo.Contains(userData.Mobile))
+        {
+            canProceed = false;
+            ViewBag.CantProceedError += "Your mobile number is blocked. ";
+        }
+        string emailDomain = GetEmailDomain(userData.Email);
+        if (blockedDomain.Contains(emailDomain))
+        {
+            canProceed = false;
+            ViewBag.CantProceedError += "Your email domain is blocked.";
+        }
+        if (canProceed) return Redirect("https://www.moneyme.com.au/");
+        else return View(userData);
+
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+    private string GetEmailDomain(string email)
+    {
+        char delimiter = '@';
+        int delimiterIndex = email.IndexOf(delimiter);
+        string outputString = outputString = email.Substring(delimiterIndex + 1);
+        return outputString;
     }
 }
