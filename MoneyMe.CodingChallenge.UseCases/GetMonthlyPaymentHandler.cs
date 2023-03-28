@@ -6,7 +6,6 @@ internal class GetMonthlyPaymentHandler : IGetMonthlyPaymentInputPort
         double loanAmount = model.AmountRequired;
         double interestRate = 00.00;
         int numPayments = model.Term;
-        double monthlyPayment = 0.00;
         switch (model.SelectedProduct)
         {
             case Products.B:
@@ -17,13 +16,14 @@ internal class GetMonthlyPaymentHandler : IGetMonthlyPaymentInputPort
                 break;
         }
 
+        double monthlyPayment;
         if (model.SelectedProduct == Products.A) monthlyPayment = loanAmount / model.Term;
         else
         {
             monthlyPayment = (loanAmount * interestRate) /
             (1 - Math.Pow(1 + interestRate, -numPayments));
         }
-        
-        return ValueTask.FromResult(Math.Round(monthlyPayment, 2));
+
+        return ValueTask.FromResult(Math.Round((double)0.00, 2));
     }
 }

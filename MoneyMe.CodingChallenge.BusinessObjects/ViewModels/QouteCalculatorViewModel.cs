@@ -10,7 +10,7 @@ public class QouteCalculatorViewModel
 
     private double GetInterest()
     {
-        double interest = 0.00;
+        double interest;
         if (UserData.SelectedProduct == Products.A) interest = 0.00;
         else interest = Math.Round(TotalRepayment - (UserData.AmountRequired + EstablismentFee), 2);
         return interest;
@@ -18,7 +18,7 @@ public class QouteCalculatorViewModel
 
     private double GetTotalRepayment()
     {
-        double total = 0.00;
+        double total;
         if (UserData.SelectedProduct == Products.A) total = Math.Round(UserData.AmountRequired + EstablismentFee, 2);
         else total = Math.Round((UserData.Term * MonthlyRepayment) + EstablismentFee, 2);
         return total;
