@@ -24,6 +24,6 @@ internal class GetMonthlyPaymentHandler : IGetMonthlyPaymentInputPort
             (1 - Math.Pow(1 + interestRate, -numPayments));
         }
 
-        return ValueTask.FromResult(Math.Round((double)0.00, 2));
+        return ValueTask.FromResult(Math.Round(monthlyPayment, 2));
     }
 }
