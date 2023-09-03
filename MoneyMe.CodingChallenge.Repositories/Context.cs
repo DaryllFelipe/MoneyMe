@@ -8,6 +8,6 @@ internal class Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Server=LAPTOP-IMEVB5MK\\SQLEXPRESS;Database=MoneyMe;Trusted_Connection=True;");
+        optionsBuilder.UseSqlServer("{your connectionstring}Database=MoneyMe;Trusted_Connection=True;");
     }
 }
